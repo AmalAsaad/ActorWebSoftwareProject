@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% block title %}
+    Home page
+{% endblock %}
+
+
+
+{% block content %}
+    <div class="cover">
+        {% load staticfiles %}
+
+        <img src="{% static 'actor/images/yes.png' %}">
+        <p> NOGOUM </p>
+
+    </div>
+
+    <!--   <div class="container">
+           <h1>Welcome to The Actor's website</h1>
+
+           <ul>
+               <li><a href="/actor">Actors page</a></li>
+               <li><a href="/actor/register">registration</a></li>
+
+           </ul>
+       </div>-->
+
+    <div class="container" >
+        <h1 style="margin-bottom: 50px;margin-top: 50px">Your Feedback </h1>
+
+
+        <div id="form-main" style="margin-bottom: 50px">
+            <div id="form-div">
+                <form class="montform" style="bottom: 50px" id="reused_form" method="post">
+                    {% csrf_token %}
+
+                    <p class="name">
+                        <textarea name="message_area" class="feedback-input" placeholder="Enter Your Feedback" id="review"> </textarea>
+                        {% if user.is_authenticated %}
+                    <div class="name">
+                        <button type="submit" class="button-blue">SUBMIT</button>
+                        <div class="ease"></div>
+                    </div>
+                       {% else %}
+                    <div class="name">
+                      <a href="/actor/login"><button onclick="show_alert()" type="button" class="button-blue">SUBMIT</button></a>
+                        <div class="ease"></div>
+                    </div>
+                     {% endif %}
+                </form>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+    <script type="text/javascript">
+        function show_alert() {
+            alert("You Should Login!");
+        }
+    </script>
+{% endblock %}

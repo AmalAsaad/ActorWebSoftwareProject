@@ -1,0 +1,195 @@
+{% extends 'base.html' %}
+{% include static %}
+{% block title %}
+    Actor Details
+{% endblock %}
+
+{% block content %}
+    <div class="cover1">
+        {% load staticfiles %}
+
+        <img src="{% static 'actor/images/yes.png' %}">
+        <p> NOGOUM </p>
+
+    </div>
+    <div class="container">
+
+
+        <!--buttons-->
+        <div class="row tools">
+            <div class="col-md-4">
+                <button class="first" style="background-color: #f7a25e;" data-toggle="collapse" data-parent="#groupy"
+                        href="#bio">
+                    <a>bio</a>
+                </button>
+            </div>
+
+            <div class="col-md-4">
+
+                <button class="first" style="background-color: #f7a25e" data-toggle="collapse" data-parent="#groupy"
+                        href="#movies">
+                    <a>films</a>
+                </button>
+            </div>
+            <div class="col-md-4">
+
+                <button class="first" style="background-color: #f7a25e" data-toggle="collapse" data-parent="#groupy"
+                        href="#awards">
+                    <a>Awards</a>
+                </button>
+            </div>
+        </div>
+
+        <!--  <h1>Details page for Actor {{ actor.name }}</h1>-->
+
+
+        <!--actor-bio-->
+        <div id="groupy">
+            <div class="row margin_top " id="bio">
+
+                <div class="col-md-4 col-sm-5">
+                    <div>
+                        <img class="img-responsive imge" src="/actor{{ actor.image.url }}"
+                             style="width:100% ; height:400px;">
+                    </div>
+
+                </div>
+
+                <div class="col-md-7  c col-sm-7 margin-top-0">
+                    <h2 class="margin-top-0"><strong>{{ actor.name }}</strong></h2>
+                    <h5><strong>born in ({{ actor.birthdate }})</strong></h5>
+                   <a href="{{ actor.socialMedia }}"><h5><strong>his account : ({{ actor.socialMedia }})</strong></h5></a>
+
+                    <p class="p1 text-left">Thomas Jeffrey Hanks (born July 9, 1956) is an American
+                        actor and filmmaker.
+                        Hanks
+                        is known
+                        for
+                        his comedic and dramatic roles in such films as Splash (1984), Big (1988), Turner & Hooch
+                        (1989), A
+                        League
+                        of Their Own (1992), Sleepless in Seattle (1993), Apollo 13 (1995), Saving Private Ryan (1998),
+                        You've
+                        Got
+                        Mail (1998), The Green Mile (1999), Cast Away (2000), Road to Perdition (2002), The Polar
+                        Express
+                        (2004),
+                        Larry Crowne (2011), Cloud Atlas (2012), Captain Phillips (2013), Saving Mr. Banks (2013), and
+                        Sully
+                        (2016).
+                        He starred in the Robert Langdon film series, and voiced Sheriff Woody in the Toy Story film
+                        series.
+
+
+                        Hanks collaborated with film director Steven Spielberg on the films Saving Private Ryan (1998),
+                        Catch Me
+                        If
+                        You Can (2002), The Terminal (2004), Bridge of Spies (2015), and The Post (2017), as well as the
+                        2001
+                        miniseries Band of Brothers, which launched Hanks as a successful director, producer, and
+                        screenwriter.
+                        In
+                        2010, Spielberg and Hanks were executive producers on the HBO miniseries The Pacific.</p>
+
+                </div>
+
+
+            </div>
+
+
+            <!--actor-movies-->
+
+            <div class="photo margin_top collapse" id="movies">
+                <div class="row">
+                    <!-- <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12"><img src="{% static 'actor/images/castaway.jpg' %}" width="250px" height="300px" class="aa"></div>-->
+                    {% for movie in movies %}
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6">
+                            <div class="thumbnail">
+                                <img src="/actor{{ movie.movie_image.url }}" alt="Lights"
+                                     style="width:250px ; height:300px;">
+                                <div class="caption text-center">
+                                    <p><strong> {{ movie.movie_name }} <span> ({{ movie.movie_date }})</span></strong>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div><!-- <img src="{% static 'actor/images/castaway.jpg' %}" width="250px" http://127.0.0.1:8000/actor/4class="aa">
+                    <img src="{% static 'actor/images/catch.jpg' %}" width="250px" height="300px" class="bb">
+                    <img src="{% static 'actor/images/big.jpg' %}" width="250px" height="300px" class="cc">
+                    <img src="{% static 'actor/images/sully.jpg' %}" width="250px" height="300px" class="dd">
+                    <img src="{% static 'actor/images/saving.jpg' %}" width="250px" height="300px" class="ee">
+                    <img src="{% static 'actor/images/captin.jpg' %}" width="250px" height="300px" class="ff">
+                    <img src="{% static 'actor/images/forrest.jpg' %}" width="250px" height="300px" class="gg">
+                    <img src="{% static 'actor/images/castaway.jpg' %}" width="250px" height="300px" class="hh">-->
+            </div>
+            <!--actor-awards-->
+            <div class="container margin_top collapse" id="awards">
+                <table class="table ">
+
+
+                    <thead>
+                    <tr>
+                        <th>Awards</th>
+
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    {% for prize in prizes %}
+
+                        <tr>
+
+
+                            <td>{{ prize.prizeName }} <span>({{ prize.prizeDate }})</span></td>
+
+                        </tr>
+                    {% endfor %}
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+        <div class="container margin_top">
+            {% if user.is_authenticated %}
+                <a href="/actor/{{ actor.id }}/message">
+                    <button class="first" style="background-color: #f7a25e; width: 30%">Leave a Message</button>
+                </a>
+
+                <a href="/actor/{{ actor.id }}/review">
+                    <button class="first" style="background-color: #f7a25e; width: 30%">Leave a Review</button>
+                </a>
+            {% else %}
+                <a>
+                    <button onclick="show_alert()" class="first" style="background-color: #f7a25e; width: 30%">Leave a Message</button>
+                </a>
+
+                <a>
+                    <button onclick="show_alert()" class="first" style="background-color: #f7a25e; width: 30%">Leave a Review</button>
+                </a>
+            {% endif %}
+
+            <table class="table ">
+                <tbody>
+                {% for review in reviews %}
+                    <tr>
+                        <td style="color: black; font-size: 15px">{{ review.user }} : <p
+                                style="color: white">{{ review.description }}</p></td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+
+        <script type="text/javascript">
+            function show_alert() {
+                alert("You Should Login!");
+            }
+        </script>
+
+
+{% endblock %}

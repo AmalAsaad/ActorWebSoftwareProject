@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}
+    -Actors
+{% endblock %}
+{% block content %}
+    <div class="container">
+        <h2>Actors Table</h2>
+
+
+                  <div class="row">
+                    {% for actor in actors %}
+                        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6">
+                            <div class="thumbnail">
+                                <img src="/actor{{ actor.image.url }}" alt="Lights"
+                                     style="width:250px ; height:300px;">
+                                <div class="caption text-center">
+                                    <p><strong> <a href="/actor/{{ actor.id }}">{{ actor.name }}</a></strong>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+
+
+
+
+
+
+
+    </div>
+{% endblock %}

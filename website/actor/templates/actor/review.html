@@ -1,0 +1,31 @@
+{% extends 'actor/details.html' %}
+{% block content %}
+
+    <div class="container">
+        <h1>Add Review to {{ actor.name }} </h1>
+
+
+        <div id="form-main">
+            <div id="form-div">
+                <form class="montform" id="reused_form" method="post">
+                    {% csrf_token %}
+
+                    <p class="">
+                        <textarea name="review_area" class="feedback-input" placeholder="Enter Review" id="review">
+
+                        </textarea>
+
+
+                    <div class="name">
+                        <button type="submit" class="button-blue">SUBMIT</button>
+                        <div class="ease"></div>
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+{% endblock %}

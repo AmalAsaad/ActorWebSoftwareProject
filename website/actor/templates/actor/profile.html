@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+    profile page
+{% endblock %}
+{% block content %}
+    <div class="cover1">
+        {% load staticfiles %}
+
+        <img src="{% static 'actor/images/yes.png' %}">
+        <p> NOGOUM </p>
+
+    </div>
+
+
+    <div class="container">
+        <!--<h2>{{ user.first_name }}</h2>
+<h2>{{ user.last_name }}</h2>
+<h2>{{ user.email }}</h2>-->
+        <div style="width: 100%" class="text-center"><img class="profilePhoto text-center" src="/actor/static/actor/images/3.jpeg"></div>
+        <h2 class="name text-center">{{ user.first_name }} {{ user.last_name }} </h2>
+
+
+        <table class="personal_info">
+
+            <tr>
+                <td><h3>Personal Information</h3></td>
+
+            </tr>
+            <tr>
+                <td><h4><strong>Username : </strong></h4></td>
+
+                <td><h4>{{ user.username }}</h4></td>
+            </tr>
+            <tr>
+                <td><h4><strong>Email Address : </strong></h4></td>
+
+                <td><h4>{{ user.email }}</h4></td>
+            </tr>
+{#                <td><h4><strong>Age : </strong></h4></td>#}
+{##}
+{#                <td><h4>{{ user.userprofile.age }}</h4></td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <td><h4><strong>Phone number : </strong></h4></td>#}
+{##}
+{#                <td><h4>{{ user.userprofile.phone }}</h4></td>#}
+{#            </tr>#}
+{#            <tr>#}
+{#                <td><h4><strong>Country : </strong></h4></td>#}
+{##}
+{#                <td><h4>{{ user.userprofile.country }}</h4></td>#}
+{#            </tr>#}
+
+           <a href="edit"> <button class="first" style="background-color: #f7a25e; width: 30%" >Edit Profile</button></a>
+
+
+</table>
+
+
+    </div>
+
+
+{% endblock %}

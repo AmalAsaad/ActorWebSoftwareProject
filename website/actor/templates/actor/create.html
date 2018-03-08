@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %}
+    - Create Actor
+{% endblock %}
+
+{% block content %}
+    <form action="/actor/create" method="post">
+        {% csrf_token %}
+        <div class="col-md-12">
+            <label>Name</label>
+            <input type="text" name="name">
+        </div>
+
+        <div class="col-md-12">
+            <label>Birthdate</label>
+            <input type="date" name="birthdate">
+        </div>
+
+        <div class="col-md-12">
+            <label>Social Media Links</label>
+            <input type="text" name="socialMedia">
+        </div>
+
+        <div class="col-md-12">
+            <label>image</label>
+            <input type="text" name="image">
+
+        </div>
+
+        <div class="col-md-12">
+            <input type="submit" value="Submit">
+        </div>
+
+    </form>
+{% endblock %}

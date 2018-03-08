@@ -1,0 +1,227 @@
+/*body {
+    background: linear-gradient(to right, #fffff0 50%, transparent), url(images/HollywoodSign.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}*/
+body {
+    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+    background: url('images/HollywoodSign.jpg') no-repeat;
+	background: linear-gradient(to right, #fffff0 50%,transparent) ,url('images/HollywoodSign.jpg') ;
+    /* background: linear-gradient(to right, #fffff0 50%, transparent), url(images/HollywoodSign.jpg);*/
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: black;
+}
+.pageTitle {
+    text-align: center;
+}
+
+.table {
+    border: 5px solid #fff;
+    width: 100%;
+    text-align: left;
+    border-spacing: 0;
+    background-color: #347f7f;
+    color: white;
+    font-weight: bold;
+}
+
+table td, table th {
+    border: 1px solid #000;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.form_table {
+    width: 60%;
+    color: #1b6d85;
+    text-align: left;
+    /*  margin: auto;*/
+}
+
+/*for buttons*/
+.tools {
+    width: 50%;
+    margin: auto;
+    padding: 0;
+}
+
+.first {
+    width: 100%;
+    display: inline-block;
+    /*height: 50px;*/
+    text-align: center;
+    border-top: 10px;
+    padding: 10px;
+    font-size: 19px;
+    color: white;
+    margin-top: 50px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+
+}
+
+a:hover {
+    color: darkgrey;
+    text-decoration: none;
+}
+
+/*for details_movies*/
+
+.photo {
+    margin: 34px 0 0 57px;
+
+}
+
+.aa {
+    margin: 20px;
+}
+
+.bb {
+    margin: 20px;
+}
+
+.cc {
+    margin: 20px;
+}
+
+.dd {
+    margin: 20px;
+}
+
+.ee {
+    margin: 20px;
+}
+
+.ff {
+    margin: 20px;
+}
+
+.gg {
+    margin: 20px;
+}
+
+.hh {
+    margin: 20px;
+}
+
+ul.topnav li a {
+    display: block;
+    text-decoration: none;
+    min-height: 15px;
+    text-align: center;
+    padding: 20px;
+    text-transform: uppercase;
+    color: #fff;
+
+    font-family: sans-serif;
+}
+
+ul.topnav li a:hover {
+    background-color: brown;
+    color: aliceblue;
+}
+
+ul.topnav li.dropdown-icon {
+    display: none;
+}
+
+.margin-top-0 {
+    margin-top: 0;
+}
+
+.margin_top {
+    margin-top: 80px;
+}
+
+.par {
+    text-align: center;
+}
+
+.p1 {
+    /*	width: 649px;*/
+    font-weight: bold;
+    line-height: 25px;
+
+}
+
+.imge {
+    margin-left: 10px;
+}
+
+.c {
+
+    margin: 0;
+}
+
+.cover1 {
+    background: linear-gradient(to right, #347f7f 35%, transparent), linear-gradient(to top, white 10%, transparent), url(images/back.jpg);
+    height: 200px;
+    border-bottom: solid 10px black;
+
+}
+
+.cover {
+    background: linear-gradient(to right, #347f7f 35%, transparent), linear-gradient(to top, white 10%, transparent), url(images/Film.jpg);
+    margin-top: 0;
+    height: 300px;
+    border-bottom: solid 10px black;
+
+}
+
+.cover img, .cover1 img {
+    padding-left: 30px;
+    padding-top: 30px;
+    height: 170px;
+    width: 170px;
+}
+
+.cover p, .cover1 p {
+    color: white;
+    font-size: 71px;
+    margin-top: -171px;
+    margin-left: 227px;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+
+}
+
+/*UserAccount*/
+.coverPhoto {
+    /* width: 995px;*/
+    height: 350px;
+    /*  margin: 27px 57px 0 165px ;*/
+    z-index: -1;
+}
+
+.profilePhoto {
+    width: 200px;
+    height: 249px;
+    margin-top: -67px;
+    /*margin: -67px 0 0 550px;*/
+    border: solid 4px;
+    border-radius: 70%;
+    background-color: white;
+    z-index: 1;
+}
+
+.name {
+    font-size: 61px;
+    font-family: cursive;
+    /*margin: 13px 0 0 484px;*/
+}
+
+.personal_info {
+    width: 40%;
+    text-align: left;
+}
+
+.personal_info td, .personal_info th {
+    padding: 10px;
+    border: none;
+    text-align: left;
+
+}

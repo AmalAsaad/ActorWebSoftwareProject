@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>website {% block title %}{% endblock %}</title>
+    {% load staticfiles %}
+
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+    <script type="text/javascript" src="{% static 'actor/bootstrap.min.js' %}"></script>
+    <script type="javascript" src="{% static 'actor/jquery-1.9.1.min.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'actor/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'actor/style.css' %}">
+    <link rel="stylesheet" href="{% static 'actor/form.css' %}">
+
+
+</head>
+
+<body>
+<nav class="navbar navbar-inverse c">
+    <div class="  container-fluid ">
+        <div class="navbar-header">
+            <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">NOGOUM</a>
+        </div>
+        <div id="navbarCollapse" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <!--  <li class="dropdown-icon"><a onclick="dropdown()" href="javascript:void(0);">&#9776;</a></li>-->
+                <li><a href="/actor">Actors</a></li>
+                {% if user.is_authenticated %}
+                    <li><a href="/actor/profile">{{ user.first_name }}</a></li>
+                {% endif %}
+                <li>
+                    <form class="navbar-form navbar-left" method="post" action="/actor/search">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-xs-8">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Search" name="search">
+                                </div>
+                            </div>
+                            <div class="col-xs-3">
+                                <button type="submit" class="btn btn-default">Submit</button>
+                            </div>
+                        </div>
+                    </form>
+                </li>
+
+            </ul>
+            {% if user.is_authenticated %}
+
+                <ul class=" nav navbar-nav navbar-right">
+                    <li><a href="/homepage/contact">Contact</a></li>
+                    <li><a id="logout" onclick="logoutfunc()">Logout</a></li>
+                </ul>
+            {% else %}
+                <ul class=" nav navbar-nav navbar-right">
+                    <li><a href="/homepage/contact" >Contact</a></li>
+                    <li><a href="/actor/login">Login</a></li>
+                    <li><a href="/actor/register">Sign up</a></li>
+
+                </ul>
+            {% endif %}
+        </div>
+
+    </div>
+</nav>
+
+
+<div>
+    {% block content %}
+    {% endblock %}
+</div>
+
+
+<script>
+    function logoutfunc() {
+        var a = document.getElementById("logout");
+        var link = document.createAttribute("href");// Create a "class" attribute
+
+        if (confirm("Are you sure to logout?!")) {
+
+            link.value = "/actor/logout"
+            a.setAttributeNode(link)
+        }
+    }
+
+
+    function commentfunc() {
+        var comment = document.getElementById("comment");
+        var put_comment = document.getElementById("put_comment");
+        put_comment.innerHTML = comment.innerHTML
+
+    }
+
+
+</script>
+
+
+</body>
+</html>

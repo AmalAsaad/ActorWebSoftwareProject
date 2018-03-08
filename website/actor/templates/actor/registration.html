@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+
+
+
+
+
+{% block content %}
+
+    <div class="container">
+        <div id="form-main">
+            <div id="form-div">
+                <form class="montform" id="reused_form" method="post">
+                    {% csrf_token %}
+
+                    <p class="name">
+                        <input name="username" type="text" class="feedback-input" required placeholder="Username"
+                               id="username"/>
+                    </p>
+                    <p class="name">
+                        <input name="email" type="email" class="feedback-input" required placeholder="Email"
+                               id="email"/>
+                    </p>
+                    <p class="">
+                        <input name="first_name" type="text" class="feedback-input" required placeholder="First Name"
+                               id="first_name"/>
+                    </p>
+                    <p class="">
+                        <input name="last_name" type="text" class="feedback-input" required placeholder="Last Name"
+                               id="last_name"/>
+                    </p>
+                    <p class="">
+                        <input name="password1" type="password" class="feedback-input" required placeholder="Password"
+                               id="password1"/>
+                    </p>
+                    <p class="">
+                        <input name="password2" type="password" class="feedback-input" required
+                               placeholder="Confirm Password" id="password2"/>
+                    </p>
+                    {##}
+                    {#                    <p class="">#}
+                    {##}
+                    {#                        <input name="age" type="number" class="feedback-input" required placeholder="Your Age"#}
+                    {#                               id="age"/>#}
+                    {#                    </p>#}
+                    {#                    <p class="">#}
+                    {##}
+                    {#                        <input name="phone" type="number" class="feedback-input" required#}
+                    {#                               placeholder="Your phone number" id="phone"/>#}
+                    {#                    </p>#}
+                    {#                    <p class="">#}
+                    {#                        <input name="country" type="text" class="feedback-input" required placeholder="Country"#}
+                    {#                               id="country"/>#}
+                    {#                    </p>#}
+                    {##}
+                    {##}
+                    {##}
+                    {##}
+                    {#                    <p class="" class="feedback-input">#}
+                    {#                        <input class="feedback-input" name="img" id="img" {{ form.img }}></p>#}
+
+
+                    <div class="">
+                        <button type="submit" class="button-blue">SUBMIT</button>
+                        <div class="ease"></div>
+                    </div>
+                    <div id="error_message" style="width:100%; height:100%; display:none; ">
+                        <h4>
+                            Error
+                        </h4>
+                        Sorry there was an error sending your form.
+                    </div>
+                    <div id="success_message" style="width:100%; height:100%; display:none; "><h2>Success! Your Message
+                        was Sent Successfully.</h2></div>
+                </form>
+
+            </div>
+
+
+        </div>
+    </div>
+{% endblock %}

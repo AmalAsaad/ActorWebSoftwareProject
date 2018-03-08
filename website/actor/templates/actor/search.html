@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %}
+    -Search Results
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+
+        <h2>Search results</h2>
+        {% if actors %}
+
+            {% for actor in actors %}
+                <!--      <a href="/actor/{{ actor.id }}">
+                    <li>{{ actor.name }}</li>
+                </a>-->
+                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6">
+                    <div class="thumbnail">
+                        <img src="/actor{{ actor.image.url }}" alt="Lights"
+                             style="width:250px ; height:300px;">
+                        <div class="caption text-center">
+                            <p><strong> <a href="/actor/{{ actor.id }}">{{ actor.name }}</a></strong>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <h2>There are not actor with that name</h2>
+        {% endif %}
+    </div>
+{% endblock %}
